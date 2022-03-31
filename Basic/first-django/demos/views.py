@@ -2,6 +2,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+import random
 # Create your views here.
 def calculator(request):
     #return HttpResponse('계산기 기능 구현 시작입니다')
@@ -28,14 +29,7 @@ def calculator(request):
 
 
 def lotto(request):
-    import random  # import 파일 최상단에 위치하는게 윈칙
-    pull_number = None
-    lotto_number = None
 
-    pull_number 
-    lotto_number = list()
-    for _ in range(7):
-        number = random.randint(1, 45)
-        lotto_number.append(number)
+    lotto_numbers = [random.randint(1,45) for _ in range(7)]
 
-    return render(request, 'lotto.html',{'lotto_number': lotto_number})
+    return render(request, 'lotto.html',{'lotto_numbers': lotto_numbers})
